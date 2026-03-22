@@ -40,17 +40,22 @@ class SpeedCalculator(QWidget):
         self.setLayout(grid)
 
     def average_speed(self):
-        distance = float(self.distance_box.text())
-        time = float(self.time_box.text())
+        try:
+            distance = float(self.distance_box.text())
+            time = float(self.time_box.text())
 
-        speed = distance/time
+            speed = distance/time
 
-        selected_text = self.unit_combo.currentText()
-        if selected_text == "Metric (km)":
-            self.output_label.setText(f"Average Speed: {speed} km/ph")
-        if selected_text == "Imperial (miles)":
-            new_speed = distance * 0.621/time
-            self.output_label.setText(f"Average Speed: {new_speed} mph")
+            selected_text = self.unit_combo.currentText()
+            if selected_text == "Metric (km)":
+                self.output_label.setText(f"Average Speed: {speed} km/ph")
+            if selected_text == "Imperial (miles)":
+                new_speed = distance * 0.621/time
+                self.output_label.setText(f"Average Speed: {new_speed} mph")
+        except ValueError:
+            self.output_label.setText("Error: Please enter valid numbers!.")
+        except ZeroDivisionError:
+            self.output_label.setText("Error: Time cannot be zero!.")
 
 
 app = QApplication(sys.argv)
