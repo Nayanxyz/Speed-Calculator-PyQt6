@@ -3,6 +3,12 @@ import sys
 
 class SpeedCalculator(QWidget):
     def __init__(self):
+        """  super().__init__() is used to call the parent class's constructor from within a child class.
+        This ensures that the parent class is properly initialized, allowing the child class to inherit
+        and use its attributes and methods.
+        If a child class defines its own __init__ method, it overrides the parent's. Without super().__init__(),
+        the parent's setup code never runs, which can lead to errors when trying to access parent attributes
+        """
         super().__init__()
         self.setWindowTitle("Average Speed Calculator")
 
@@ -33,6 +39,18 @@ class SpeedCalculator(QWidget):
 
         self.setLayout(grid)
 
+    def average_speed(self):
+        distance = float(self.distance_box.text())
+        time = float(self.time_box.text())
+
+        speed = distance/time
+
+        selected_text = self.unit_combo.currentText()
+        if selected_text == "Metric (km)":
+            self.output_label.setText(f"Average Speed: {speed} km/ph")
+        if selected_text == "Imperial (miles)":
+            new_speed = distance * 0.621/time
+            self.output_label.setText(f"Average Speed: {new_speed} mph")
 
 
 app = QApplication(sys.argv)
