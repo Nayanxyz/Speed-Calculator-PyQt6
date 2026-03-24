@@ -25,8 +25,12 @@ git clone https://github.com/Nayanxyz/Speed-Calculator-PyQt6.git
 cd Speed-Calculator-PyQt6
 ```
 **2. Install Dependencies**
+```bash
 pip install PyQt6
+```
 
+```bash
 **3. Execute the Application**
+```
 python SpeedCalculator.py
 
