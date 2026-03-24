@@ -29,8 +29,8 @@ cd Speed-Calculator-PyQt6
 pip install PyQt6
 ```
 
-```bash
 **3. Execute the Application**
-```
+```bash
 python SpeedCalculator.py
+```
 
