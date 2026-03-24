@@ -24,3 +24,9 @@ Unlike basic script calculators, this application is designed with strict user-i
 git clone https://github.com/Nayanxyz/Speed-Calculator-PyQt6.git 
 cd Speed-Calculator-PyQt6
 ```
+**2. Install Dependencies**
+pip install PyQt6
+
+**3. Execute the Application**
+python SpeedCalculator.py
+
